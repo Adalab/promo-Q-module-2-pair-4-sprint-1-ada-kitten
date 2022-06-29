@@ -1,6 +1,6 @@
 'use strict'
 
-const CollapsedForm = document.querySelector('.js-new-form');
+
 
 const kittenImage1 = 'https://ychef.files.bbci.co.uk/976x549/p07ryyyj.jpg';
 
@@ -26,10 +26,10 @@ const kittenDesc1 =
   'Ruiseño, juguetón, le guta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!';
 
   const kittenDesc2 =
-  'B';
+  'b';
 
   const kittenDesc3 =
-  'C';
+  'c';
 
 const kittenRace1 = 'British Shorthair';
 
@@ -43,7 +43,7 @@ const kittenRace3 = 'Raza 3';
 
 let KittenData = document.querySelector('.js-list');
 
-const Cat1  = `<li class="card">
+const Cat1  = `<li class="card js_cat1">
 <article>
   <img
     class="card_img"
@@ -59,7 +59,7 @@ ${kittenDesc1}
 </li>`;
 
 
-const Cat2 = `<li class="card">
+const Cat2 = `<li class="card js_cat2">
 <img
   class="card_img"
   src="${kittenImage2}"
@@ -72,7 +72,7 @@ ${kittenDesc2}
 </p>
 </li>`;
 
-const Cat3 = `<li class="card">
+const Cat3 = `<li class="card js_cat3">
 <img
   class="card_img"
   src="${kittenImage3}"
@@ -87,3 +87,50 @@ ${kittenDesc3}
 
 KittenData.innerHTML = `${Cat1} + ${Cat2} + ${Cat3}`;
 
+const inputSearchDesc = document.querySelector('.js_in_search_desc');
+
+/* inputSearchDesc.value = 'juguetón'; */
+
+/* const descrSearchText = inputSearchDesc.value; */
+
+
+/* if (!kittenDesc1.includes(descrSearchText)){
+  document.querySelector('.js_cat1').classList.add('collapsed');
+}
+if (!kittenDesc2.includes(descrSearchText)){
+  document.querySelector('.js_cat2').classList.add('collapsed');
+}
+if (!kittenDesc3.includes(descrSearchText)){
+  document.querySelector('.js_cat3').classList.add('collapsed');
+} */
+
+//Colapsed form
+const menuAdd = document.querySelector ('.js_menuAdd');
+
+menuAdd.addEventListener('click', (event) => {
+  event.preventDefault();
+  const CollapsedForm = document.querySelector('.js-new-form');
+  if (CollapsedForm.classList.contains('collapsed')){
+    CollapsedForm.classList.remove('collapsed');
+    } else {
+      CollapsedForm.classList.add('collapsed');
+    }
+
+})
+
+
+
+
+
+
+
+
+//bonus 3
+/* const raceInput =document.querySelector('.js_race');
+let raceAlert = raceInput.value;
+if (raceAlert==='') {
+  console.log(`No se ha especificado la raza`);
+} else {
+  console.log(raceAlert);
+}; */
+  
