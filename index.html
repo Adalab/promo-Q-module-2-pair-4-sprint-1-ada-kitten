@@ -12,7 +12,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      href="https://pro.fontawesome.com/resleases/v5.10.0/css/all.css"
       integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
       crossorigin="anonymous"
     />
@@ -42,16 +42,26 @@
         <h2 class="title">¿Agregamos un nuevo gatito a Adalab?</h2>
         <form class="form">
           <input
-            class="input"
+            class="input js-addImg"
             type="text"
             placeholder="Url de la foto"
             required
           />
-          <input class="input" type="text" placeholder="Nombre" required />
-          <input class="input" type="text" placeholder="Raza" />
-          <input class="input" type="text" placeholder="Descripción" required />
+          <input
+            class="input js-addName"
+            type="text"
+            placeholder="Nombre"
+            required
+          />
+          <input class="input js-addRace" type="text" placeholder="Raza " />
+          <input
+            class="input js-addDesc"
+            type="text"
+            placeholder="Descripción"
+            required
+          />
           <label class=""></label>
-          <button class="button">Añadir</button>
+          <button class="button js-addButton">Añadir</button>
           <button class="button-cancel">Cancelar</button>
         </form>
       </section>

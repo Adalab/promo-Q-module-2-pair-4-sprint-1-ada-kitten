@@ -1,62 +1,86 @@
-'use strict'
+"use strict";
 
-const menuAdd = document.querySelector ('.js_menuAdd');
+const menuAdd = document.querySelector(".js_menuAdd");
 
-const kittenImage1 = 'https://ychef.files.bbci.co.uk/976x549/p07ryyyj.jpg';
+const CollapsedForm = document.querySelector(".js-new-form");
 
-const kittenImage2 = 'https://images.emedicinehealth.com/images/article/main_image/cat-scratch-disease.jpg';
+const kittenData = document.querySelector(".js-list");
 
-const kittenImage3 = 'https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/newscms/2019_39/3021711/190923-cat-pet-stock-cs-1052a.jpg';
+const addButton = document.querySelector(".js-addButton");
 
-const name1 = 'Anastacio';
+// const Cat1 = {
+//   name : 'Anastacio',
+//   desc : 'Ruiseño, juguetón, le guta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!',
+//   image: 'https://ychef.files.bbci.co.uk/976x549/p07ryyyj.jpg',
+//   title: () => {Cat1.name.toUpperCase()}
+// }
 
-const kittenName1 = name1.toUpperCase();
+// const kittenName2 = name2.toUpperCase();
 
+// const kittenName3 = name3.toUpperCase();
 
-const name2 = 'Fiona';
+//Colapsar formulario
+menuAdd.addEventListener("click", (event) =>
+  CollapsedForm.classList.toggle("collapsed")
+);
 
-const kittenName2 = name2.toUpperCase();
+// Crear una función que genere un nuevo gatito
 
-const name3 = 'Cielo';
-
-
-const kittenName3 = name3.toUpperCase();
-
-const CollapsedForm = document.querySelector('.js-new-form');
-
-const kittenDesc1 =
-  'Ruiseño, juguetón, le guta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!';
-
-  const kittenDesc2 =
-  'b';
-
-  const kittenDesc3 =
-  'c';
-
-const kittenRace1 = 'British Shorthair';
-
-const kittenRace2 = 'Raza 2';
-
-const kittenRace3 = 'Raza 3';
-
-let KittenData = document.querySelector('.js-list');
-
-const handleClick = () => CollapsedForm.classList.toggle('collapsed');
-
-menuAdd.addEventListener('click', handleClick);
-
-function CardCat(kittenImage, kittenName, kittenRace, kittenDesc) {
-  let htmlCard = `<li class="card js_cat1">`;
-  htmlCard += `<article>`;
-  htmlCard += `<img class="card_img" src=${kittenImage} alt="gatito" />`;
-  htmlCard += `<h3 class="card_title">${kittenName}</h3>`;
-  htmlCard += `<h4 class="card_race">${kittenRace}</h4>`;
-  htmlCard += `<p class="card_description"> ${kittenDesc} </p>`;
-  htmlCard += `</article>`;
-  htmlCard += `</li>`;
-  return htmlCard;
+function renderKitten(event) {
+  event.preventDefault();
+  const newCat = {
+    name: document.querySelector(".js-addName").value.toUpperCase(),
+    img: document.querySelector(".js-addImg").value,
+    desc: document.querySelector(".js-addDesc").value,
+    race: document.querySelector(".js-addRace").value,
+    renderKitten: function () {
+      const html = `<li class="card">
+    <article>
+      <img
+        class="card_img"
+        src=${this.img}
+        alt="gatito"
+      />
+      <h3 class="card_title">${this.name}</h3>
+      <h4 class="card_title">${this.race}</h4>
+      <p class="card_description">
+      ${this.desc}
+      </p>
+    </article>
+    </li>`;
+      return html;
+    },
+  };
+  // Lo añado al array
+  kittenDataList.push(newCat);
+  // lo renderiza/pinta en html
+  kittenData.innerHTML += newCat.renderKitten();
 }
+addButton.addEventListener("click", renderKitten);
+//Crear un filtro de busqueda ((ACABAR CON LO QUE YA SE))
+const inputSearchDesc = document.querySelector(".js_in_search_desc");
 
- KittenData.innerHTML = CardCat(kittenImage1, kittenName1, kittenRace1, kittenDesc1) + CardCat(kittenImage2, kittenName2, kittenRace2, kittenDesc2) + CardCat(kittenImage3, kittenName3, kittenRace3, kittenDesc3);
+//Objetos y arrays de gatitos
 
-const inputSearchDesc = document.querySelector('.js_in_search_desc');
+const kittenData_1 = {
+  image: "https://ychef.files.bbci.co.uk/976x549/p07ryyyj.jpg",
+  name: "Anastacio".toUpperCase,
+  desc: "Ruiseño, juguetón, le guta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!",
+  race: "British Shorthair",
+};
+const kittenData_2 = {
+  name: "Fiona".toUpperCase,
+  desc: "Muy pegajosa",
+  race: "Siamés",
+  image:
+    "https://images.emedicinehealth.com/images/article/main_image/cat-scratch-disease.jpg",
+};
+const kittenData_3 = {
+  name: "Cielo".toUpperCase,
+  desc: "Le encanta comer",
+  race: "Siamés",
+  image:
+    "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/newscms/2019_39/3021711/190923-cat-pet-stock-cs-1052a.jpg",
+};
+
+const kittenDataList = [kittenData_1, kittenData_2, kittenData_3];
