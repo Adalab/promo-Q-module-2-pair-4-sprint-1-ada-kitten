@@ -7,60 +7,8 @@ const CollapsedForm = document.querySelector(".js-new-form");
 const kittenData = document.querySelector(".js-list");
 
 const addButton = document.querySelector(".js-addButton");
-
-// const Cat1 = {
-//   name : 'Anastacio',
-//   desc : 'Ruiseño, juguetón, le guta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!',
-//   image: 'https://ychef.files.bbci.co.uk/976x549/p07ryyyj.jpg',
-//   title: () => {Cat1.name.toUpperCase()}
-// }
-
-// const kittenName2 = name2.toUpperCase();
-
-// const kittenName3 = name3.toUpperCase();
-
-//Colapsar formulario
-menuAdd.addEventListener("click", (event) =>
-  CollapsedForm.classList.toggle("collapsed")
-);
-
-// Crear una función que genere un nuevo gatito
-
-function renderKitten(event) {
-  event.preventDefault();
-  const newCat = {
-    name: document.querySelector(".js-addName").value.toUpperCase(),
-    img: document.querySelector(".js-addImg").value,
-    desc: document.querySelector(".js-addDesc").value,
-    race: document.querySelector(".js-addRace").value,
-    renderKitten: function () {
-      const html = `<li class="card">
-    <article>
-      <img
-        class="card_img"
-        src=${this.img}
-        alt="gatito"
-      />
-      <h3 class="card_title">${this.name}</h3>
-      <h4 class="card_title">${this.race}</h4>
-      <p class="card_description">
-      ${this.desc}
-      </p>
-    </article>
-    </li>`;
-      return html;
-    },
-  };
-  // Lo añado al array
-  kittenDataList.push(newCat);
-  // lo renderiza/pinta en html
-  kittenData.innerHTML += newCat.renderKitten();
-}
-addButton.addEventListener("click", renderKitten);
-//Crear un filtro de busqueda ((ACABAR CON LO QUE YA SE))
+//Crear un filtro de busqueda ((RENDERIZAR CON LO QUE YA SE!!))
 const inputSearchDesc = document.querySelector(".js_in_search_desc");
-
-//Objetos y arrays de gatitos
 
 const kittenData_1 = {
   image: "https://ychef.files.bbci.co.uk/976x549/p07ryyyj.jpg",
@@ -84,3 +32,48 @@ const kittenData_3 = {
 };
 
 const kittenDataList = [kittenData_1, kittenData_2, kittenData_3];
+
+// Crear una función que genere un nuevo gatito
+
+function renderKitten() {
+  let html = `<li class="card">
+   <article>
+     <img
+       class="card_img"
+       src= ${kittenDataList}
+       alt="gatito"
+     />
+     <h3 class="card_title">${name}</h3>
+     <h4 class="card_title">${race}</h4>
+     <p class="card_description">
+     ${desc}
+     </p>
+   </article>
+   </li>`;
+}
+
+function addKitten(event) {
+  event.preventDefault();
+  const newCat = {
+    name: document.querySelector(".js-addName").value.toUpperCase(),
+    img: document.querySelector(".js-addImg").value,
+    desc: document.querySelector(".js-addDesc").value,
+    race: document.querySelector(".js-addRace").value,
+  };
+
+  // Lo añado al array
+  kittenDataList.push(newCat);
+
+  // AQUÍ!! lo renderiza/pinta en html: CON BUCLE
+for ()
+
+  // Creo una función que me pinte todos los gatitos (todo el array nuevo)
+}
+addButton.addEventListener("click", addKitten);
+
+//Objetos y arrays de gatitos -solo 3-
+
+//Colapsar formulario
+menuAdd.addEventListener("click", (event) =>
+  CollapsedForm.classList.toggle("collapsed")
+);
